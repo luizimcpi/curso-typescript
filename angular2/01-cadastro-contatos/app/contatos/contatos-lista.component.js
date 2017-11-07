@@ -6,17 +6,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 const core_1 = require("@angular/core");
-/*O nome do arquivo é sempre em lowercase e o nome da classe é a concatenação do nome do Arquivo sem a extensão*/
-let AppComponent = class AppComponent {
+let ContatosListaComponent = class ContatosListaComponent {
 };
-AppComponent = __decorate([
+ContatosListaComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        template: `
-        <h1>My First Angular 2 App</h1>
-        <contatos-lista></contatos-lista>
-    `
+        moduleId: module.id,
+        selector: 'contatos-lista',
+        templateUrl: 'contatos-lista.component.html',
+        styleUrls: []
     })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+], ContatosListaComponent);
+exports.ContatosListaComponent = ContatosListaComponent;
+//# sourceMappingURL=contatos-lista.component.js.map
