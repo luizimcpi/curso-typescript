@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Contato } from './contato.model';
+import { CONTATOS } from './contatos-mock';
 
 @Component({
     moduleId: module.id,
@@ -8,4 +10,6 @@ import { Component } from '@angular/core';
 
     ]
 })
-export class ContatosListaComponent{}
+export class ContatosListaComponent{
+    contatos: Contato[] = CONTATOS;
+}

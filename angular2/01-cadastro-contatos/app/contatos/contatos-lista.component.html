@@ -12,10 +12,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Luiz Henrique </td>
-                        <td>luizimcpi@gmail.com </td>
-                        <td>(13) 99177-8769</td>
+                    <tr *ngFor="let c of contatos">
+                        <td >{{ c.nome }}</td>
+                        <td>{{ c.email }} </td>
+                        <td>{{ c.telefone }}</td>
                         <td><button class="btn btn-danger">Deletar</button></td>
                     </tr>
                 </tbody>
