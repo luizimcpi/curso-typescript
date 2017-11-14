@@ -7,4 +7,11 @@ export class ContatoService {
     getContatos(): Promise<Contato[]> {
         return Promise.resolve(CONTATOS);
     }
+
+    //Simula uma conexão lenta
+    getContatosSlowly(): Promise<Contato[]> {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, 3000);
+        }).then( () => this.getContatos() );
+    }
 }
