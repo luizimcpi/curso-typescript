@@ -14,7 +14,7 @@ export class ContatosListaComponent implements OnInit {
     contatos: Contato[];
     constructor(private contatoService: ContatoService) { }
     ngOnInit(): void {
-        this.contatoService.getContatosSlowly()
+        this.contatoService.getContatos()
         //Arrow Function
         .then((contatos: Contato[]) => {
             this.contatos = contatos;

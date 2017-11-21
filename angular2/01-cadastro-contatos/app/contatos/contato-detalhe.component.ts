@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-
 import { ContatoService } from './contato.service';
 
 @Component({
@@ -12,7 +11,7 @@ import { ContatoService } from './contato.service';
 export class ContatoDetalheComponent implements OnInit {
 
     constructor(
-        private ContatoService,
+        private contatoService: ContatoService,
         private route: ActivatedRoute,
         private location: Location
     ) { }
