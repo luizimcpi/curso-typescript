@@ -17,9 +17,7 @@ let ContatoService = class ContatoService {
     getContatoPorId(id) {
         return this.getContatos()
             .then((contatos) => {
-            return contatos.find((contato) => {
-                return contato.id === id;
-            });
+            return contatos.find(contato => contato.id === id);
         });
     }
     //Simula uma conexão lenta

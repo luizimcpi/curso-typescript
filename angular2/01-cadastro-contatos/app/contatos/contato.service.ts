@@ -15,9 +15,7 @@ export class ContatoService {
     private getContatoPorId(id: number) {
         return this.getContatos()
             .then((contatos: Contato[]) => {
-                return contatos.find((contato) => {
-                    return contato.id === id;
-                });
+                return contatos.find(contato => contato.id === id);
             });
     }
 
@@ -25,6 +23,6 @@ export class ContatoService {
     getContatosSlowly(): Promise<Contato[]> {
         return new Promise((resolve, reject) => {
             setTimeout(resolve, 3000);
-        }).then( () => this.getContatos() );
+        }).then(() => this.getContatos());
     }
 }
