@@ -25,6 +25,10 @@ let ContatoDetalheComponent = class ContatoDetalheComponent {
             //colocando o '+' na frente o retorno do params é convertido para numero
             let id = +params['id'];
             console.log('Consultando ID: ' + id);
+            this.contatoService.getContato(id)
+                .then((contato) => {
+                console.log(contato);
+            });
         });
     }
 };

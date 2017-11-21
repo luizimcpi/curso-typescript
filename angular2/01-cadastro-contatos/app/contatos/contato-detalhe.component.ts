@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
+import { Contato } from './contato.model';
 import { ContatoService } from './contato.service';
 
 @Component({
@@ -23,6 +24,10 @@ export class ContatoDetalheComponent implements OnInit {
             //colocando o '+' na frente o retorno do params é convertido para numero
             let id: number = +params['id'];
             console.log('Consultando ID: ' + id);
+            this.contatoService.getContato(id)
+                .then((contato: Contato) => {
+                    console.log(contato);
+                });
         });
     }
 }
