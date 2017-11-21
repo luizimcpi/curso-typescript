@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require("@angular/core");
 const router_1 = require("@angular/router");
 const common_1 = require("@angular/common");
+const contato_model_1 = require("./contato.model");
 const contato_service_1 = require("./contato.service");
 let ContatoDetalheComponent = class ContatoDetalheComponent {
     constructor(contatoService, route, location) {
@@ -21,6 +22,7 @@ let ContatoDetalheComponent = class ContatoDetalheComponent {
     ngOnInit() {
         //Será chamado sempre que ocorrer um clique em algum elemento da lista
         console.log('clicou em um elemento da lista de contatos');
+        this.contato = new contato_model_1.Contato(0, '', '', '');
         this.route.params.forEach((params) => {
             //colocando o '+' na frente o retorno do params é convertido para numero
             let id = +params['id'];
@@ -28,8 +30,12 @@ let ContatoDetalheComponent = class ContatoDetalheComponent {
             this.contatoService.getContato(id)
                 .then((contato) => {
                 console.log(contato);
+                this.contato = contato;
             });
         });
+    }
+    teste() {
+        console.log(this.contato);
     }
 };
 ContatoDetalheComponent = __decorate([
