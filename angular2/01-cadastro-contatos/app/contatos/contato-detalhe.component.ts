@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { Contato } from './contato.model';
 import { ContatoService } from './contato.service';
+import { isPrimitive } from 'util';
 
 @Component({
     moduleId: module.id,
@@ -35,6 +36,22 @@ export class ContatoDetalheComponent implements OnInit {
                     });
             }
         });
+    }
+
+    getFormGroupClass(isValid: boolean, isPristine: boolean):{}{
+        return{
+            'form-group': true,
+            'has-danger': !isValid && !isPristine,
+            'has-success': isValid && !isPristine
+        };
+    }
+
+    getFormControlClass(isValid: boolean, isPristine: boolean):{}{
+        return{
+            'form-control': true,
+            'form-control-danger': !isValid && !isPristine,
+            'form-control-success': isValid && !isPristine
+        };
     }
 
     logTwoWayDataBind(): void {
