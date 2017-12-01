@@ -22,20 +22,22 @@ export class ContatoDetalheComponent implements OnInit {
     ngOnInit(): void {
         //Será chamado sempre que ocorrer um clique em algum elemento da lista
         console.log('clicou em um elemento da lista de contatos');
-        this.contato = new Contato(0, '','','');
+        this.contato = new Contato(0, '', '', '');
         this.route.params.forEach((params: Params) => {
             //colocando o '+' na frente o retorno do params é convertido para numero
             let id: number = +params['id'];
             console.log('Consultando ID: ' + id);
-            this.contatoService.getContato(id)
-                .then((contato: Contato) => {
-                    console.log(contato);
-                    this.contato = contato;
-                });
+            if (id) {
+                this.contatoService.getContato(id)
+                    .then((contato: Contato) => {
+                        console.log(contato);
+                        this.contato = contato;
+                    });
+            }
         });
     }
 
-    logTwoWayDataBind(): void{
+    logTwoWayDataBind(): void {
         console.log(this.contato);
     }
 }
