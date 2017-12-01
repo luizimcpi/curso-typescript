@@ -37,7 +37,7 @@ let ContatoDetalheComponent = class ContatoDetalheComponent {
         });
     }
     logTwoWayDataBind() {
-        console.log(this.contato);
+        console.log();
     }
 };
 ContatoDetalheComponent = __decorate([

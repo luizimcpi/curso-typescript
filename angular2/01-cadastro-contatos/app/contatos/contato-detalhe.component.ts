@@ -38,6 +38,6 @@ export class ContatoDetalheComponent implements OnInit {
     }
 
     logTwoWayDataBind(): void {
-        console.log(this.contato);
+        console.log();
     }
 }
