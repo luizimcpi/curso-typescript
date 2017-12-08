@@ -18,6 +18,7 @@ let ContatoDetalheComponent = class ContatoDetalheComponent {
         this.contatoService = contatoService;
         this.route = route;
         this.location = location;
+        this.isNew = true;
     }
     ngOnInit() {
         //Será chamado sempre que ocorrer um clique em algum elemento da lista
@@ -28,6 +29,7 @@ let ContatoDetalheComponent = class ContatoDetalheComponent {
             let id = +params['id'];
             console.log('Consultando ID: ' + id);
             if (id) {
+                this.isNew = false;
                 this.contatoService.getContato(id)
                     .then((contato) => {
                     console.log(contato);
@@ -50,8 +52,13 @@ let ContatoDetalheComponent = class ContatoDetalheComponent {
             'form-control-success': isValid && !isPristine
         };
     }
-    logTwoWayDataBind() {
-        console.log();
+    onSubmit() {
+        if (this.isNew) {
+            console.log('Cadastrar Contato');
+        }
+        else {
+            console.log('Alterar contato');
+        }
     }
 };
 ContatoDetalheComponent = __decorate([

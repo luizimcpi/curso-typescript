@@ -13,6 +13,7 @@ import { isPrimitive } from 'util';
 export class ContatoDetalheComponent implements OnInit {
 
     contato: Contato;
+    private isNew: boolean = true;
 
     constructor(
         private contatoService: ContatoService,
@@ -29,6 +30,7 @@ export class ContatoDetalheComponent implements OnInit {
             let id: number = +params['id'];
             console.log('Consultando ID: ' + id);
             if (id) {
+                this.isNew = false;
                 this.contatoService.getContato(id)
                     .then((contato: Contato) => {
                         console.log(contato);
@@ -54,7 +56,14 @@ export class ContatoDetalheComponent implements OnInit {
         };
     }
 
-    logTwoWayDataBind(): void {
-        console.log();
+    onSubmit(): void {
+        if(this.isNew){
+            console.log('Cadastrar Contato');
+        }else{
+            console.log('Alterar contato');
+        }
+        
     }
+
+  
 }
