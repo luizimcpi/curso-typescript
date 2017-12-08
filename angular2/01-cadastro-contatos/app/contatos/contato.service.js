@@ -15,15 +15,29 @@ let ContatoService = class ContatoService {
     constructor(http) {
         this.http = http;
         this.contatosUrl = 'app/contatos';
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     getContatos() {
         //return Promise.resolve(CONTATOS);
         return this.http.get(this.contatosUrl)
             .toPromise()
-            .then(response => response.json().data);
+            .then(response => response.json().data)
+            .catch(this.handleError);
     }
     getContato(id) {
         return this.getContatoPorId(id);
+    }
+    create(contato) {
+        return this.http.post(this.contatosUrl, JSON.stringify(contato), { headers: this.headers })
+            .toPromise()
+            .then((response) => {
+            console.log(response.json().data);
+            return response.json().data;
+        })
+            .catch(this.handleError);
+    }
+    handleError(err) {
+        return Promise.reject(err.message || err);
     }
     getContatoPorId(id) {
         return this.getContatos()
